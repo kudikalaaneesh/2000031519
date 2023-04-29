@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import axios from "axios";
 import './alltrains.css'
+import { NavLink } from 'react-router-dom';
 
 function AllTrains() {
 
@@ -20,7 +21,7 @@ function AllTrains() {
         .catch((err) => { 
             console.log(err)
         });
-    }, []) // empty array to run this effect only once when component mounts
+    }, []) 
 
     return (
         <>
@@ -36,7 +37,7 @@ function AllTrains() {
                                     <Card.Text style={{textAlign:"justify"}}>
                                     {data.info}
                                     </Card.Text>
-                                    <Button variant="primary">View More</Button>
+                                    <Button variant="primary"><NavLink to={`/train/${data.name}`} style={{color:"black"}} >View More</NavLink></Button>
                                 </Card.Body>
                             </Card>
                        
